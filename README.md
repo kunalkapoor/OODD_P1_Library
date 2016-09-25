@@ -1,9 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple Library Management software that allows creation and booking of rooms for the library.
 
-Things you may want to cover:
+Both extra credits have been implemented.
+* The app sends an email to any user that is in another user's team upon successful booking.
+* The app does not allow a user to book multiple rooms at the same date and time unless explicitly given the privilege by an admin.
+
+You can login using the superadmin credentials - admin@lib.com/admin.
 
 * Ruby version
     * Ruby version 2.2.4
@@ -40,13 +43,3 @@ Things you may want to cover:
         * bin\rails db:setup
         * bin\rails db:migrate
         * bin\rails db:seed
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
