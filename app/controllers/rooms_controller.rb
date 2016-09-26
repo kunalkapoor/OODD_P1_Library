@@ -15,7 +15,7 @@ class RoomsController < ApplicationController
     else
       @room = Room.new(room_params)
     end
-    if params[:room] and (params[:room][:number] or params[:room][:building] or params[:room][:size])
+    if params[:room].present? and (params[:room][:number].present? or params[:room][:building].present? or params[:room][:size].present?)
       @rooms = Room.search(params[:room])
       if !@rooms.present?
         @rooms = nil
@@ -24,6 +24,8 @@ class RoomsController < ApplicationController
           set_size_text room
         end
       end
+    else
+      flash.now[:danger] = "Please enter a search parameter"
     end
   end
 
