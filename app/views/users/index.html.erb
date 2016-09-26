@@ -32,7 +32,6 @@
                             <td class="danger"><%= link_to 'No', privilege_path(:email => user.email), method: 'post' %></td>
                         <% end %>
                         <td><%= link_to 'Show', user, class: "text-info" %></td>
-                        <td><%= link_to 'Reservation History', user, class: "text-warning" %></td>
                         <% if user.removable %>
                             <td><%= link_to 'Destroy', user, method: :delete, data: {confirm: 'Are you sure?'}, class: "text-danger" %></td>
                         <% end %>

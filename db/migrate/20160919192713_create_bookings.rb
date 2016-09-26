@@ -4,7 +4,7 @@ class CreateBookings < ActiveRecord::Migration[5.0]
       t.string :email
       t.integer :room
       t.datetime :start
-      t.datetime :end
+      t.datetime :endd
       t.text :team
 
       t.timestamps

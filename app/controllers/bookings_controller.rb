@@ -105,7 +105,7 @@ class BookingsController < ApplicationController
   # DELETE /bookings/1.json
   def destroy
     @booking = Booking.find(params[:id])
-    @booking.end = Booking.getEndTime(@booking.start)
+    @booking.endd = Booking.getEndTime(@booking.startdate)
     if @booking.save
       redirect_to home_path, notice: 'Booking was successfully released.'
     end
@@ -119,7 +119,7 @@ class BookingsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def booking_params
-    params.require(:booking).permit(:room, :email, :start, :end, :team)
+    params.require(:booking).permit(:room, :email, :startdate, :endd, :team)
   end
 
 end

@@ -13,9 +13,9 @@ class Booking < ApplicationRecord
 
   def self.refreshEndDates
     Booking.all.each do |booking|
-      if booking.end.blank?
+      if booking.endd.blank?
         if ((DateTime.now - booking.start.to_datetime) * 24).to_i >= 2
-          booking.end = Booking.getEndTime(booking.start)
+          booking.endd = Booking.getEndTime(booking.start)
           booking.save
         end
       end
@@ -24,12 +24,12 @@ class Booking < ApplicationRecord
 
   def self.search(booking)
     refreshEndDates
-    where("room = ? and start = ? and (end IS NULL or end = '')", booking.room, booking.start)
+    where("room = ? and start = ? and (endd IS NULL or endd = '')", booking.room, booking.start)
   end
 
   def self.searchUserBookedRoom(room)
     refreshEndDates
-    booking = where("room = ? and start <= ? and (end IS NULL or end = '')", room, DateTime.now)
+    booking = where("room = ? and start <= ? and (endd IS NULL or endd = '')", room, DateTime.now)
     if booking.present?
       booking.each do |b|
         return b.email
@@ -53,6 +53,6 @@ class Booking < ApplicationRecord
   end
 
   def self.findActiveBookingByUser(booking)
-    where("email = ? and start = ? and (end IS NULL or end = '')", booking.email, booking.start)
+    where("email = ? and start = ? and (endd IS NULL or endd = '')", booking.email, booking.start)
   end
 end

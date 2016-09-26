@@ -23,11 +23,11 @@
               </tr>
               <tr>
                 <td>End</td>
-                <td class="active"><%= @booking.end %></td>
+                <td class="active"><%= @booking.endd %></td>
               </tr>
               <tr>
                 <td>Active</td>
-                <% if @booking.end.blank? %>
+                <% if @booking.endd.blank? %>
                     <td class="success">Yes</td>
                 <% else %>
                     <td class="danger">No</td>
@@ -39,7 +39,7 @@
               </tr>
               </tbody>
             </table>
-            <% if @booking.end.blank? %>
+            <% if @booking.endd.blank? %>
                 <%= link_to 'Release', booking_path(@booking), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-default" %>
             <% end %>
           </div>

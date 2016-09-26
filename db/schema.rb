@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20160920022040) do
     t.string   "email"
     t.integer  "room"
     t.datetime "start"
-    t.datetime "end"
+    t.datetime "endd"
     t.text     "team"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
