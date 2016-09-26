@@ -24,12 +24,12 @@ class Booking < ApplicationRecord
 
   def self.search(booking)
     refreshEndDates
-    where("room = ? and start = ? and (endd IS NULL or endd = '')", booking.room, booking.start)
+    where("room = ? and start = ? and endd IS NULL", booking.room, booking.start)
   end
 
   def self.searchUserBookedRoom(room)
     refreshEndDates
-    booking = where("room = ? and start <= ? and (endd IS NULL or endd = '')", room, DateTime.now)
+    booking = where("room = ? and start <= ? and endd IS NULL", room, DateTime.now)
     if booking.present?
       booking.each do |b|
         return b.email
@@ -53,6 +53,6 @@ class Booking < ApplicationRecord
   end
 
   def self.findActiveBookingByUser(booking)
-    where("email = ? and start = ? and (endd IS NULL or endd = '')", booking.email, booking.start)
+    where("email = ? and start = ? and endd IS NULL", booking.email, booking.start)
   end
 end
