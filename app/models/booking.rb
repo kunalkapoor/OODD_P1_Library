@@ -4,8 +4,8 @@ class Booking < ApplicationRecord
   def self.getEndTime(start)
     if DateTime.now < start
       start
-    elsif ((DateTime.now - booking.start.to_datetime) * 24).to_i >= 2
-      booking.start.to_datetime + (2/24.0)
+    elsif ((DateTime.now - start.to_datetime) * 24).to_i >= 2
+      start.to_datetime + (2/24.0)
     else
       DateTime.now
     end
