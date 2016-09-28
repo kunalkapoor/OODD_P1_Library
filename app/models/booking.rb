@@ -55,4 +55,22 @@ class Booking < ApplicationRecord
   def self.findActiveBookingByUser(booking)
     where("email = ? and start = ? and endd IS NULL", booking.email, booking.start)
   end
+
+  def self.releaseBookingsForRoom(room)
+    Booking.all.each do |booking|
+      if booking.endd.blank? and booking.room == room
+        booking.endd = Booking.getEndTime(booking.start)
+        booking.save
+      end
+    end
+  end
+
+  def self.releaseBookingsForUser(email)
+    Booking.all.each do |booking|
+      if booking.endd.blank? and booking.email == email
+        booking.endd = Booking.getEndTime(booking.start)
+        booking.save
+      end
+    end
+  end
 end

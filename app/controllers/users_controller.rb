@@ -97,10 +97,12 @@ class UsersController < ApplicationController
   def destroy
     if @user.removable
       if @user.email == current_user.email
+        Booking.releaseBookingsForUser(@user.email)
         log_out
         @user.destroy
         redirect_to root_url, notice: 'User was successfully destroyed.'
       else
+        Booking.releaseBookingsForUser(@user.email)
         @user.destroy
         redirect_to users_url, notice: 'User was successfully destroyed.'
       end

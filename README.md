@@ -22,6 +22,12 @@ You can login using the superadmin credentials - admin@lib.com/admin.
   * User can alter his profile from his home page.
   * User can book room using "search room" tab. User can select his preference of room such as location (D.H.Hill or James Hunt), size(small, medium, large), or simply by room number in case   he wants to book a particular room. User can select from list of rooms shown in subsequent screen. User need to enter the start time of booking in "YYYY-MM-DD HH:MM:SS" format   specifically and email ids of team mates should be provided separated by commas.
  
+* Special cases
+  * When admin deletes room
+    * All bookings for that room are released. Booking history of library members shows the same.
+  * When admin deletes library member
+    * Are all open bookings released?
+
 * Ruby version
     * Ruby version 2.2.4
     * Rails version >= 5.0.0.1
