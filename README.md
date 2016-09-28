@@ -26,7 +26,7 @@ You can login using the superadmin credentials - admin@lib.com/admin.
   * When admin deletes room
     * All bookings for that room are released. Booking history of library members shows the same.
   * When admin deletes library member
-    * Are all open bookings released?
+    * All bookings for that library member are released.
 
 * Ruby version
     * Ruby version 2.2.4
